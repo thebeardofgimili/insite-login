@@ -1,4 +1,5 @@
 <style>
+  
   div.preview-images > img {
     width: 30%;
   }
@@ -61,7 +62,13 @@
     background-color: red;
   }
 
+  button{
+    font-family: 'Montserrat', sans-serif !important;
+  }
   
+  #file{
+    margin-top:15px;
+  }
 </style>
 
 <div class="row mt-5">
@@ -78,7 +85,7 @@
             id="name"
             name="name"
             class="form-control"
-            placeholder="Enter Name"
+            placeholder="Name"
             value="<%= typeof name != 'undefined' ? name : '' %>"
           />
         </div>
@@ -88,7 +95,7 @@
             id="email"
             name="email"
             class="form-control"
-            placeholder="Enter Email"
+            placeholder="Email"
             value="<%= typeof email != 'undefined' ? email : '' %>"
           />
         </div>
@@ -98,7 +105,7 @@
             id="password"
             name="password"
             class="form-control"
-            placeholder="Create Password"
+            placeholder="Password"
             value="<%= typeof password != 'undefined' ? password : '' %>"
           />
         </div>
@@ -108,7 +115,7 @@
             id="password2"
             name="password2"
             class="form-control"
-            placeholder="Confirm Password"
+            placeholder="Password"
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
           />
         <div class="form-group">
@@ -116,13 +123,11 @@
           type="file"
           id="file"
           name="file"
-          class="form-control"
+          class="form-control-file"
           />
         </div>
         <div class="form-group">
-          <div class="col-sm-12">
             <div class="preview-images"></div>
-          </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block" id='endButton'>
           Sign Up
