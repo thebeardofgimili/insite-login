@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const path = require('path');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use(express.static(path.resolve(__dirname, 'views', 'stylesheets')));
 
 const PORT = process.env.PORT || 5000;
 
