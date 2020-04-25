@@ -3,14 +3,38 @@
     width: 30%;
   }
 
+  body {
+    background: url("https://res.cloudinary.com/dsndzibyq/image/upload/v1587843962/background_o9ahb7.png");
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+
+  img{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px;
+    width: 50%;
+  }
+
+  #registration{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 43px;
+    text-align: center;
+  }
 
 </style>
 
 <div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body">
-      <h1 class="text-center mb-3">
-        <img src="stylesheets/Insite_Logo_1.png" alt='insite'> Register
+  <div class="col-md-4 m-auto">
+    
+      <h1 class="text-center mb-3" id ="registration">
+        <img src="https://res.cloudinary.com/insitecloud/image/upload/v1587846055/Insite_Logo_1_mmsrh7.png"> 
+        Register
       </h1>
       <%- include('./partials/messages.ejs'); %>
       <form action="/users/register" method="POST" enctype="multipart/form-data">
@@ -77,7 +101,6 @@
         </button>
       </form>
       <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
-    </div>
   </div>
 </div>
 
