@@ -21,12 +21,38 @@
   #registration{
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 100;
     font-size: 35px;
     line-height: 43px;
     text-align: center;
   }
+  html {
+  font-family: 'Montserrat', sans-serif;
+  }
 
+  body {
+  font-family: 'Montserrat', sans-serif;
+  }
+
+  pre, code, kbd, samp {
+  font-family: 'Montserrat', sans-serif;
+    }
+
+  input, button, select, optgroup, textarea {
+  font-family: inherit;
+  }
+
+  .tooltip {
+  font-family: 'Montserrat', sans-serif;
+  }
+
+  .popover {
+  font-family: 'Montserrat', sans-serif;
+  }
+
+  .text-monospace {
+  font-family: 'Montserrat', sans-serif;
+  }
 </style>
 
 <div class="row mt-5">
@@ -34,7 +60,7 @@
     
       <h1 class="text-center mb-3" id ="registration">
         <img src="https://res.cloudinary.com/insitecloud/image/upload/v1587846055/Insite_Logo_1_mmsrh7.png"> 
-        Register
+        Registration
       </h1>
       <%- include('./partials/messages.ejs'); %>
       <form action="/users/register" method="POST" enctype="multipart/form-data">
