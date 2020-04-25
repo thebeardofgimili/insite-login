@@ -139,7 +139,7 @@
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
           />
         <div class="form-group">
-          <div class="input-group" style = "visibility: hidden;">
+          <div class="input-group" id='previewIm' style = "visibility: hidden;">
             <span class="input-group-btn" id = 'previewButton' style = "visibility: visible;">
                 <span class="btn btn-secondary btn-file" style = "background-color:#666363;">
                     Choose file <input type="file" id="file" name="file">
@@ -174,7 +174,7 @@
 		});
 
 		$('.btn-file :file').on('fileselect', function(event, label) {
-		    
+		    $('#previewIm').show();
 		    var input = $(this).parents('.input-group').find(':text'),
 		        log = label;
 		    
@@ -197,7 +197,7 @@
 		    }
 		}
 
-		$("#imgInp").change(function(){
+		$("#file").change(function(){
 		    readURL(this);
 		}); 	
 	});
