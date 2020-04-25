@@ -1,8 +1,5 @@
 <style>
   
-  div.preview-images > img {
-    width: 30%;
-  }
 
   body {
     background: url("https://res.cloudinary.com/dsndzibyq/image/upload/v1587843962/background_o9ahb7.png");
@@ -15,7 +12,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top:55px;
+    margin-top:10px;
     width: 50%;
   }
 
@@ -65,21 +62,40 @@
   button{
     font-family: 'Montserrat', sans-serif !important;
   }
-
-  p{
-    text-align: center;
-  }
   
-  #file{
+  #previewButton{
     margin-top:15px;
   }
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+}
 </style>
 
 <div class="row mt-5">
   <div class="col-md-4 m-auto">
     
       <h1 class="text-center mb-3" id ="registration">
-        <img src="https://res.cloudinary.com/dsndzibyq/image/upload/v1587848513/regi_iijlmv.jpg"> 
+        <img src="https://res.cloudinary.com/insitecloud/image/upload/v1587846987/Screen_Shot_2020-04-25_at_3.17.57_PM_lwmcp6.png"> 
       </h1>
       <%- include('./partials/messages.ejs'); %>
       <form action="/users/register" method="POST" enctype="multipart/form-data">
@@ -123,17 +139,20 @@
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
           />
         <div class="form-group">
-        <input
-          type="file"
-          id="file"
-          name="file"
-          class="form-control-file"
-          />
+          <div class="input-group" style = "visibility: hidden;">
+            <span class="input-group-btn" id = 'previewButton' style = "visibility: visible;">
+                <span class="btn btn-secondary btn-file" style = "background-color:#666363;">
+                    Choose file <input type="file" id="file" name="file">
+                </span>
+            </span>
+            <input type="text" class="form-control" readonly>
+          </div>
+          <img id='img-upload'/>
         </div>
         <div class="form-group">
             <div class="preview-images"></div>
         </div>
-        <div class="col-md-5 m-auto"></div>
+        <div class="col-md-5"></div>
         <button type="submit" class="btn btn-primary btn-block" id='endButton'>
           Sign Up
         </button>
@@ -147,24 +166,39 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script>
-  // Profile pic preview
-  $(document).ready(function() {
-    let imagesPreview = function(input, placeToInsertImagePreview) {
-      if (input.files) {
-        let filesAmount = input.files.length;
-        for (i = 0; i < filesAmount; i++) {
-          let reader = new FileReader();
-          reader.onload = function(event) {
-            $($.parseHTML("<img>"))
-              .attr("src", event.target.result)
-              .appendTo(placeToInsertImagePreview);
-          };
-          reader.readAsDataURL(input.files[i]);
-        }
-      }
-    };
-    $("#input-files").on("change", function() {
-      imagesPreview(this, "div.preview-images");
-    });
-  });
+  $(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
 </script>
