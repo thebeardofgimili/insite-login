@@ -53,19 +53,26 @@
   .text-monospace {
   font-family: 'Montserrat', sans-serif;
   }
+  input{
+    background-color: #c4c4c4 !important;
+  }
+
+  input, textarea{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+    background-color: red;
+  }
+
+  
 </style>
 
 <div class="row mt-5">
   <div class="col-md-4 m-auto">
     
       <h1 class="text-center mb-3" id ="registration">
-        <img src="https://res.cloudinary.com/insitecloud/image/upload/v1587846055/Insite_Logo_1_mmsrh7.png"> 
-        Registration
+        <img src="https://res.cloudinary.com/insitecloud/image/upload/v1587846987/Screen_Shot_2020-04-25_at_3.17.57_PM_lwmcp6.png"> 
       </h1>
       <%- include('./partials/messages.ejs'); %>
       <form action="/users/register" method="POST" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="name">Name</label>
           <input
             type="name"
             id="name"
@@ -76,7 +83,6 @@
           />
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
           <input
             type="email"
             id="email"
@@ -87,7 +93,6 @@
           />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
           <input
             type="password"
             id="password"
@@ -98,7 +103,6 @@
           />
         </div>
         <div class="form-group">
-          <label for="password2">Confirm Password</label>
           <input
             type="password"
             id="password2"
@@ -107,8 +111,6 @@
             placeholder="Confirm Password"
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
           />
-
-        <!-- Uploading profile pic -->
         <div class="form-group">
         <input
           type="file"
@@ -122,8 +124,8 @@
             <div class="preview-images"></div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">
-          Register
+        <button type="submit" class="btn btn-primary btn-block" id='endButton'>
+          Sign Up
         </button>
       </form>
       <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
