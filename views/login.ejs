@@ -3,41 +3,57 @@
   body {
     background: url("https://res.cloudinary.com/dsndzibyq/image/upload/v1587843962/background_o9ahb7.png");
     background-repeat: no-repeat !important;
-    background-size: auto !important;
+    background-size: cover !important;
+  }
+
+  img{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:120px;
+    width: 20%;
+  }
+
+  #form{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
   }
 
 </style>
 
-<div class="row mt-5">
+<img src="https://res.cloudinary.com/dsndzibyq/image/upload/v1587844680/logo_fyzlo6.jpg" >
+
+<div class="row mt-5" id = "form">
         <div class="col-md-6 m-auto">
           <div class="card card-body">
-            <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
+            
             <%- include('./partials/messages.ejs'); %>
             <form action="/users/login" method="POST">
               <div class="form-group">
-                <label for="email">Email</label>
+                
                 <input
                   type="email"
                   id="email"
                   name="email"
                   class="form-control"
-                  placeholder="Enter Email"
+                  placeholder="Email"
                 />
               </div>
               <div class="form-group">
-                <label for="password">Password</label>
                 <input
-                  type="password"
+                  type="pasasword"
                   id="password"
                   name="password"
                   class="form-control"
-                  placeholder="Enter Password"
+                  placeholder="Password"
                 />
               </div>
               <button type="submit" class="btn btn-primary btn-block">Login</button>
             </form>
             <p class="lead mt-4">
-              No Account? <a href="/users/register">Register</a>
+              Not a Member? <a href="/users/register">Register</a>
             </p>
           </div>
         </div>
