@@ -51,7 +51,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-app.use(express.static(path.resolve(__dirname, 'views', 'stylesheets')));
+app.use(express.static(__dirname + '/views'));
 
 const PORT = process.env.PORT || 5000;
 
