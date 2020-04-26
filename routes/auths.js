@@ -10,7 +10,7 @@ router.get('/google', passport.authenticate('google', { scope: ['profile']}));
 router.get('/google/redirect', passport.authenticate('google', {failureRedirect: '/users/login', failureFlash: true}), (req, res) => {
     console.log(req.user);
     req.session.save(function(){
-        res.redirect('/dashboard');
+        res.redirect('/map');
     });
 });
 
