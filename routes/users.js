@@ -113,7 +113,6 @@ router.post('/register', multipartMiddleware, (req, res) => {
 //Login Handle
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        //NOTE - CHANGE THIS TO THE MAP!!!!!!
         successRedirect: '/dashboard',
         failureRedirect: '/users/login',
         failureFlash: true

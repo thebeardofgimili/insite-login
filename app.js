@@ -72,6 +72,7 @@ app.get("/call",function(req, res){
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/auths', require('./routes/auths'));
 app.use(express.static('/views'));
 app.use('/map', express.static(__dirname + '/public'))
 
