@@ -97,7 +97,7 @@ router.post('/register', multipartMiddleware, (req, res) => {
                                 newUser.save()
                                     .then(user => {
                                         req.flash('success_msg', 'You are now a registered user and can now log in')
-                                        res.redirect('/');
+                                        res.redirect('/users/login');
                                     })
                                     .catch(err => console.log(err));
                             })
