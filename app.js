@@ -15,7 +15,7 @@ require('./config/passport')(passport);
 const db = require('./config/keys').MongoURI;
 
 //Connect to Mongo
-mongoose.connect(process.env.MONGODB_URI || db, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(db, { useNewUrlParser: true })
     .then(()=> console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
@@ -48,8 +48,8 @@ app.use((req, res, next) => {
     next();
 });
 
-const accountSid = '';
-const authToken = '';
+const accountSid = 'AC4f0233428991688e6aa22583a9284737';
+const authToken = '54e5bc8f0e3e20bf501f563456713139';
 const client = require('twilio')(accountSid, authToken);
 
 app.get("/call",function(req, res){
