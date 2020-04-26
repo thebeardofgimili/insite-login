@@ -73,6 +73,7 @@ app.get("/call",function(req, res){
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use(express.static('/views'));
+app.use('/map', express.static(__dirname + '/public'))
 
 const PORT = process.env.PORT || 5000;
 

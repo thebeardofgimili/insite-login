@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JQSlider</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css">
+  </script>
+  <style>
+    body {
+      background: url("https://res.cloudinary.com/dsndzibyq/image/upload/v1587843962/background_o9ahb7.png");
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .contain {
+      width: 100%;
+      margin: 40px auto;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: scale(1.5);
+    }
+
+    .slider-inner {
+      text-align: center;
+      width: 500px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      float: left;
+      padding: 3px;
+    }
+
+    .slider-inner img {
+      display: none;
+      width: 500px;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+    }
+
+    .slider-inner img.active {
+      display: inline-block;
+    }
+
+    .prev, .next {
+      float: left;
+      margin-top: 150px;
+      cursor: pointer;
+      transform: scale(.7);
+    }
+
+    .prev {
+      position: relative;
+      margin-right: -45px;
+      z-index: 100;
+      color: #E96868;
+      
+    }
+
+    .next {
+      position: relative;
+      margin-left: -45px;
+      z-index: 100;
+      color: #E96868;
+    }
+
+    #insiteLogo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      margin-bottom: -20px;
+      width: 22%;
+    }
+
+    input {
+      background-color: #c4c4c4 !important;
+    }
+
+    input,
+    textarea {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      background-color: red;
+    }
+
+    html {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    #bump{
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container"></div>
+  <img src="https://res.cloudinary.com/dsndzibyq/image/upload/v1587847472/welcome_cmtfs5.jpg" id='insiteLogo'>
+  <div class="row">
+    <div class='col'>
+      <div class="contain">
+        <div class="slider-outer">
+          <img src="images/arrow-left.png" class="prev" alt="Prev">
+          <div class="slider-inner">
+            <img src="images/image1.jpg" class="active" id="img" data-link="#link">
+            <img src="images/image2.jpg" id="img" data-link="#link1">
+            <img src="images/image3.jpg" id="img" data-link="#link2">
+            <img src="images/image4.jpg" id="img" data-link="#link3">
+          </div>
+          <img src="images/arrow-right.png" class="next" alt="Next">
+        </div>
+      </div>
+    </div>
+    <div class="w-100" id= 'bump'></div>
+    <div class="col"></div>
+    <div class="col">
+      <form action="/" method="POST" style='margin-top: 15px;'>
+        <div class="form-group">
+          <input type="name" id="name" name="name" class="form-control" placeholder="Room Name" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="goToMap">Login</button>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+  </div>
+
+  </div>
+</body>
+
+</html>
