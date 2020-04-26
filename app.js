@@ -48,6 +48,27 @@ app.use((req, res, next) => {
     next();
 });
 
+const accountSid = 'AC4f0233428991688e6aa22583a9284737';
+const authToken = '54e5bc8f0e3e20bf501f563456713139';
+const client = require('twilio')(accountSid, authToken);
+
+app.get("/call",function(req, res){
+    
+    console.log("Calling");
+    client.calls
+      .create({
+         url: 'http://demo.twilio.com/docs/voice.xml',
+         to: '+12269733125',
+         from: '+17204774896'
+       })
+      .then(call => console.log(call.sid));
+
+    client.messages
+      .create({body: 'Hi there!', from: '+17204774896', to: '+12269733125'})
+      .then(message => console.log(message.sid));
+
+});
+
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
