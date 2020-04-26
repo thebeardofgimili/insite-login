@@ -29,7 +29,7 @@
     }
 
     .contain {
-      width: 100%;
+      width: 540;
       margin: 40px auto;
       overflow: auto;
       display: flex;
@@ -122,7 +122,7 @@
 <body>
   <div class="container"></div>
   <img src="https://res.cloudinary.com/dsndzibyq/image/upload/v1587847472/welcome_cmtfs5.jpg" id='insiteLogo'>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class='col'>
       <div class="contain">
         <div class="slider-outer">
@@ -138,8 +138,8 @@
       </div>
     </div>
     <div class="w-100" id= 'bump'></div>
-    <div class="col"></div>
-    <div class="col">
+
+    <div class="col-md-6 m-auto">
       <form action="/" method="POST" style='margin-top: 15px;'>
         <div class="form-group">
           <input type="name" id="name" name="name" class="form-control" placeholder="Room Name" />
@@ -147,7 +147,7 @@
         <button type="submit" class="btn btn-primary btn-block" id="goToMap">Login</button>
       </form>
     </div>
-    <div class="col"></div>
+
   </div>
   </div>
 
