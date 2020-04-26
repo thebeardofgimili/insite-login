@@ -15,7 +15,7 @@ require('./config/passport')(passport);
 const db = require('./config/keys').MongoURI;
 
 //Connect to Mongo
-mongoose.connect(db, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || db , { useNewUrlParser: true })
     .then(()=> console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
